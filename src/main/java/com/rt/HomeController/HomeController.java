@@ -16,10 +16,10 @@ public class HomeController {
 	
 	@PostMapping("/added")
 	public String add(@RequestBody Entityes e) {
-	
+	 int a=10;
 		s.add(e);
 		
-		return"Emp Added Successfully....!";
+		return"Employee Added Successfully....!";
 
 	}
 	
