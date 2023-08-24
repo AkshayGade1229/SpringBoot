@@ -16,7 +16,7 @@ public class HomeController {
 	
 	@PostMapping("/added")
 	public String add(@RequestBody Entityes e) {
-	 int a=10;
+	 
 		s.add(e);
 		
 		return"Employee Added Successfully....!";
