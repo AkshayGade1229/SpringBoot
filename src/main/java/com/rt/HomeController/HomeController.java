@@ -1,5 +1,6 @@
 package com.rt.HomeController;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class HomeController {
 			return"Emp update Successfully....!";
 
 		}
-	//-----------------------------------Get Emp BY Id------------------------------------------------------------------
+	//-----------------------------------Get Emp BY Id *****------------------------------------------------------------------
 		@GetMapping("/id/{id}")
 		public Optional<Entityes> findById(@PathVariable int id) {
 		
@@ -47,6 +48,29 @@ public class HomeController {
 			return e1;
 
 		}
+		
+//----------------------------------Select All Data--------------------------------------------------------------------
+		
+		@GetMapping("/emp")
+		public List<Entityes> findByIdAll() {
+		
+			List<Entityes> list = s.findByIdAll();
+			
+			return list;
+
+		}
+		
+	//----------------------------------Select By Name -------------------------------------------------------------------
+		
+				@GetMapping("/emp/name/{name}")
+				public List<Entityes> findByName(@PathVariable String name) {
+				
+					List<Entityes> list = s.findByName(name);
+					
+					return list;
+
+				}
+		
 	//----------------------------------Delete Emp ---------------------------------------------------------------------------
 		@DeleteMapping("/id/{id}")
 		public String deleteById(@PathVariable Entityes id) {

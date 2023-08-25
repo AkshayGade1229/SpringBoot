@@ -1,6 +1,7 @@
 package com.rt.Services;
 
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,4 +44,18 @@ public class Service {
 		return null;
 	}
 
+	public List<Entityes> findByIdAll() {
+		List<Entityes> list = Dao.findAll();
+		return list;
+	}
+
+	public List<Entityes> findByName(String name) {
+		List<Entityes> list = Dao.findByName(name);
+		
+		return list;
+	}
+
+	
+
+	
 }
