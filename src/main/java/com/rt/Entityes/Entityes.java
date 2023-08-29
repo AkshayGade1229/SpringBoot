@@ -5,30 +5,39 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
-@Table(name ="spring_boot")
+@Table(name = "spring_boot")
 public class Entityes {
-	
+
 	@Id
 	@GeneratedValue
 	@Column(name = "id")
-	private int id;
 	
+	@NotNull(message = "Id is Required")
+	private int id;
+
+	@Size(max = 6, message = "plz Enter Your Proper Name.?")
+	@Pattern(regexp = "^[a-zA-Z]+$", message = "Invalid name format. Should only contain letters and spaces.")
 	@Column(name = "name")
 	private String name;
-	
+	@Pattern(regexp = "^[a-zA-Z]+$", message = "Invalid name format. Should only contain letters and spaces.")
 	@Column(name = "lastname")
 	private String lastname;
-	
+
+	@Size(min = 10, max = 12, message = "plz Enter Your Proper Number.?")
 	@Column(name = "mobile")
 	private String mobile;
-	
+
 	@Column(name = "address")
 	private String address;
-	
-	public Entityes() {}
-	
+
+	public Entityes() {
+	}
+
 	public Entityes(int id, String name, String lastname, String mobile, String address) {
 		super();
 		this.id = id;
@@ -77,8 +86,5 @@ public class Entityes {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
-	
-	
 
 }

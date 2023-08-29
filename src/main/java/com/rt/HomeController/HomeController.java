@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,10 +21,20 @@ public class HomeController {
 	@Autowired
 	Service s;
 	
+	@Value("${message}")
+	private String msg;
+	
+	@Value("${message1}")
+	private String msg1;
+	
 	@PostMapping("/added")
 	public String add(@RequestBody Entityes e) {
 	 
 		s.add(e);
+		
+		System.out.println(msg);
+		System.out.println(msg1);
+
 		
 		return"Employee Added Successfully....!";
 
@@ -37,6 +48,8 @@ public class HomeController {
 			s.update(e);
 			
 			return"Emp update Successfully....!";
+			
+			
 
 		}
 	//-----------------------------------Get Emp BY Id *****------------------------------------------------------------------
@@ -51,7 +64,7 @@ public class HomeController {
 		
 //----------------------------------Select All Data--------------------------------------------------------------------
 		
-		@GetMapping("/emp")
+		@GetMapping("/findall")
 		public List<Entityes> findByIdAll() {
 		
 			List<Entityes> list = s.findByIdAll();
