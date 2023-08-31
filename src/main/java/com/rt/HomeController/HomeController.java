@@ -27,6 +27,7 @@ public class HomeController {
 	@Value("${message1}")
 	private String msg1;
 	
+//----------------------------------Add Emp----------------------------------------------------------------------------------	
 	@PostMapping("/added")
 	public String add(@RequestBody Entityes e) {
 	 
